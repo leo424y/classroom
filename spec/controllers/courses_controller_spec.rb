@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CourseController, type: :controller do
+RSpec.describe CoursesController, type: :controller do
   describe 'GET index' do
     it 'assigns @courses and render template' do
       course1 = Course.create(title: 'foo', description: 'bar')
