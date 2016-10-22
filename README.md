@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## crlf issue
+$ git config core.eol lf
+$ git config core.autocrlf input
+
+http://stackoverflow.com/questions/9976986/force-lf-eol-in-git-repo-and-working-copy
