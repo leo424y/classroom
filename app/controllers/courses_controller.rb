@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
   # fix ActionNotFound
-  @courses = Course.all
+  def index
+    @courses = Course.all
+  end
 end
