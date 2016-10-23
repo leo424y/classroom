@@ -19,8 +19,6 @@ class CoursesController < ApplicationController
     else
       render :new
     end
-
-    redirect_to courses_path
   end
 
   protected
