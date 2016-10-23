@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CoursesController, type: :controller do
-  # index
   describe 'GET index' do
     it 'assigns @courses and render' do
       course1 = FactoryGirl.create(:course)
@@ -18,7 +17,6 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  # show
   describe 'GET show' do
     it 'assigns @course' do
       course = FactoryGirl.create(:course)
@@ -33,7 +31,6 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  # new
   describe 'GET new' do
     it 'assign @course' do
       course = FactoryGirl.build(:course)
@@ -53,7 +50,6 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  # create
   describe 'POST create' do
     context "when course doesn't have a title " do
       it "doesn't create a record" do
@@ -84,7 +80,6 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  # edit
   describe 'GET edit' do
     it 'assign course' do
       course = FactoryGirl.create(:course)
@@ -171,6 +166,12 @@ RSpec.describe CoursesController, type: :controller do
       delete :destroy, id: course.id
 
       expect(response).to redirect_to courses_path
+    end
+  end
+
+  describe 'Homepage' do
+    it 'route root path to course # index' do
+      expect(get: '/').to route_to(controller: 'courses', action: 'index')
     end
   end
 end
