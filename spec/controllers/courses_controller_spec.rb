@@ -32,12 +32,12 @@ RSpec.describe CoursesController, type: :controller do
   end
 
   describe 'GET new' do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:course) { course = FactoryGirl.build(:course) }
+
     context 'when user login' do
       it 'assign @course' do
-        user = FactoryGirl.create(:user)
         sign_in user
-
-        course = FactoryGirl.build(:course)
 
         get :new
 
@@ -46,10 +46,7 @@ RSpec.describe CoursesController, type: :controller do
       end
 
       it 'render template' do
-        user = FactoryGirl.create(:user)
         sign_in user
-
-        course = FactoryGirl.build(:course)
 
         get :new
 
