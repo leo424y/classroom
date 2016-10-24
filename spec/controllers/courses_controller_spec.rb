@@ -40,19 +40,20 @@ RSpec.describe CoursesController, type: :controller do
         sign_in user
         get :new
       end
+
       it 'assign @course' do
         expect(assigns(:course)).to be_new_record
         expect(assigns(:course)).to be_instance_of(Course)
       end
+
       it 'render template' do
         expect(response).to render_template('new')
       end
     end
 
-    context 'when user not login' do
-      it 'redirect_to new_user_session_path' do
+    it_behaves_like 'require_sign_in' do
+      let(:action) do
         get :new
-        expect(response).to redirect_to new_user_session_path
       end
     end
   end
